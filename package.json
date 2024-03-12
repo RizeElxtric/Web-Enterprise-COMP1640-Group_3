@@ -1,0 +1,15 @@
+{
+  "name": "our-website",
+  "version": "1.0.0",
+  "description": "Connect to MongoDB",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "MinhVu",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.3",
+    "mongoose": "^8.2.1"
+  }
+}
