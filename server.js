@@ -18,27 +18,29 @@ async function connect() {
 connect();
 
 // Middleware for serving static files
-app.use(express.static(path.join(__dirname, "src", "views")));
+app.use(express.static(path.join(__dirname, "public", "views")));
 
 // Route for the home page
 app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "src", "views", "home", "home.html"));
+  res.sendFile(path.join(__dirname, "public", "views", "home", "home.html"));
 });
 app.get("/dashboard", (req, res) => {
   res.sendFile(
-    path.join(__dirname, "src", "views", "dashboard", "dashboard.html")
+    path.join(__dirname, "public", "views", "dashboard", "dashboard.html")
   );
 });
 app.get("/livechat", (req, res) => {
   res.sendFile(
-    path.join(__dirname, "src", "views", "livechat", "livechat.html")
+    path.join(__dirname, "public", "views", "livechat", "livechat.html")
   );
 });
 app.get("/contact", (req, res) => {
-  res.sendFile(path.join(__dirname, "src", "views", "contact", "contact.html"));
+  res.sendFile(
+    path.join(__dirname, "public", "views", "contact", "contact.html")
+  );
 });
 app.get("/login", (req, res) => {
-  res.sendFile(path.join(__dirname, "src", "views", "login", "login.html"));
+  res.sendFile(path.join(__dirname, "public", "views", "login", "login.html"));
 });
 
 app.listen(8000, () => {
