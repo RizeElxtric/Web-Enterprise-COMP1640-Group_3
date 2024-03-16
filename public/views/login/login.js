@@ -17,3 +17,7 @@ document.getElementById("submitEmail").addEventListener("click", function () {
       "Please enter a valid FPT email address";
   }
 });
+
+document.getElementById("loginButton").addEventListener("click", function () {
+  document.getElementById("loginForm").style.display = "block";
+});

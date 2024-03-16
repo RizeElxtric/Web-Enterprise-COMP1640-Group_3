@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Live Chat Page</title>
     <link rel="stylesheet" href="../home/home.css" />
+    <link rel="stylesheet" href="../liveChat/liveChat.css" />
   </head>
   <body>
     <header>
@@ -20,8 +21,14 @@
     </header>
 
     <div class="container">
-      <h2>Welcome to Live Chat Page</h2>
-      <p>This is the live chat page of our web application.</p>
+      <h2>Live Chat</h2>
+      <div id="chat_box"></div>
+
+      <input id="chat_input" type="text" placeholder="Enter message" />
+      <button onclick="send()">Send</button>
+
+      <input type="file" id="fileUpload" accept="image/*, .doc, .docx" />
+      <button onclick="upload()">Upload</button>
 
       <script src="liveChat.js"></script>
     </div>
