@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Live Chat Page</title>
+    <link rel="stylesheet" href="../home/home.css" />
+    <link rel="stylesheet" href="../contributions/contributions.css" />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="../dashboard/dashboard.html">Dashboard</a></li>
+          <li>
+            <a href="../contributions/contributions.html">Contributions</a>
+          </li>
+          <li>
+            <a href="../manageContributions/manageContributions.html"
+              >Manage Contributions</a
+            >
+          </li>
+          <li><a href="../contact/contact.html">Contact</a></li>
+          <li id="loginListItem"><a href="../login/login.html">Login</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <div class="container">
+      <div class="contribute-container">
+        <h1>Contribute</h1>
+        <form id="contribute-form">
+          <label for="title">Title</label>
+          <input
+            type="text"
+            id="title"
+            name="title"
+            placeholder="Title of your contribution"
+            required
+          />
+
+          <label for="description">Description</label>
+          <textarea
+            id="description"
+            name="description"
+            placeholder="Describe your contribution"
+            rows="4"
+            required
+          ></textarea>
+
+          <label for="file">Upload your work</label>
+          <input type="file" id="file" name="file" required />
+
+          <button type="submit">Contribute</button>
+        </form>
+      </div>
+      <script src="contributions.js"></script>
+    </div>
+  </body>
+</html>

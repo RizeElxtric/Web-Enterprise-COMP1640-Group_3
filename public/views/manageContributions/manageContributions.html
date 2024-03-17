@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Contact Page</title>
+    <title>Manage Contributions</title>
+    <link rel="stylesheet" type="text/css" href="manageContributions.css" />
+    <script src="manageContributions.js"></script>
     <link rel="stylesheet" href="../home/home.css" />
   </head>
   <body>
@@ -26,10 +26,24 @@
       </nav>
     </header>
 
-    <div class="container">
-      <h2>Welcome to Contact Page</h2>
-      <p>This is the contact page of our web application.</p>
+    <div class="manage-contributions-container">
+      <h1>Manage Contributions</h1>
+
+      <table id="contributions-table">
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Contributor</th>
+            <th>Date</th>
+            <th>Status</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Contributions will be dynamically populated here -->
+        </tbody>
+      </table>
     </div>
-    <script src="./contact.js"></script>
   </body>
 </html>
