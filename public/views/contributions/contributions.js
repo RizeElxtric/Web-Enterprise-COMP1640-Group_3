@@ -1,47 +1,46 @@
-// Hàm kiểm tra trạng thái đăng nhập
+let userContributions = [];
+
 function checkLoginStatus() {
   if (localStorage.getItem("isLoggedIn")) {
     document.getElementById("loginListItem").innerHTML =
-      '<a href="../logout/logout.html">Logout</a>';
+      '<a href="./logout.html">Logout</a>';
   } else {
     document.getElementById("loginListItem").innerHTML =
-      '<a href="../login/login.html">Login</a>';
+      '<a href="./login.html">Login</a>';
   }
 }
 
-// Gọi hàm kiểm tra trạng thái đăng nhập khi trang web tải xong
 window.onload = checkLoginStatus;
 
-// // Gọi hàm kiểm tra trạng thái đăng nhập khi trang web tải xong
-// window.onload = checkLoginStatus;
+document
+  .getElementById("contribute-form")
+  .addEventListener("submit", async function (event) {
+    event.preventDefault();
 
-// var chatBox = document.getElementById("chat_box");
+    var title = document.getElementById("title").value;
+    var description = document.getElementById("description").value;
 
-// function send() {
-//   var msg = document.getElementById("chat_input").value;
-//   if (msg != "") {
-//     chatBox.innerHTML += "<p>" + msg + "</p>";
-//     document.getElementById("chat_input").value = "";
-//     chatBox.scrollTop = chatBox.scrollHeight;
-//   }
-// }
+    // Add user's contributions into `userContributions`
+    userContributions.push({ title: title, description: description });
 
-// function upload() {
-//   var file = document.getElementById("fileUpload").files[0];
-//   if (file) {
-//     if (file.type.match("image.*")) {
-//       var reader = new FileReader();
-//       reader.onloadend = function () {
-//         chatBox.innerHTML +=
-//           '<p><img src="' +
-//           reader.result +
-//           '" style="width:100px;height:100px;" alt="Uploaded image"></p>';
-//         chatBox.scrollTop = chatBox.scrollHeight;
-//       };
-//       reader.readAsDataURL(file);
-//     } else {
-//       chatBox.innerHTML += "<p>File uploaded: " + file.name + "</p>";
-//       chatBox.scrollTop = chatBox.scrollHeight;
-//     }
-//   }
-// }
+    var response = await fetch("/contributions", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(userContributions), // submit `userContributions`
+    });
+
+    if (response.ok) {
+      var data = await response.json();
+      console.log(data);
+      alert("Contribution submitted successfully");
+
+      //Reset form and userContributions array after submission
+      document.getElementById("contribute-form").reset();
+      userContributions = [];
+    } else {
+      alert("Failed to submit contribution");
+      console.error("Error:", error);
+    }
+  });

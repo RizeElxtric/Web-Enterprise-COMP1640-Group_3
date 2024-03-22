@@ -6,6 +6,15 @@ const app = express();
 const uri =
   "mongodb+srv://Group4:ToiYeuMonNay@group4.okgrvdw.mongodb.net/?retryWrites=true&w=majority&appName=Group4";
 
+const Contribution = mongoose.model(
+  "Contribution",
+  new mongoose.Schema({
+    title: String,
+    description: String,
+  }),
+  "contributions"
+);
+
 async function connect() {
   try {
     await mongoose.connect(uri);
@@ -19,6 +28,7 @@ connect();
 
 // Middleware for serving static files
 app.use(express.static(path.join(__dirname, "public", "views")));
+app.use(express.json());
 
 // Route for the home page
 app.get("/", (req, res) => {
@@ -42,7 +52,25 @@ app.get("/contact", (req, res) => {
 app.get("/login", (req, res) => {
   res.sendFile(path.join(__dirname, "public", "views", "login", "login.html"));
 });
-
+app.get("/contributions", async (req, res) => {
+  try {
+    const contributions = await Contribution.find();
+    res.status(200).json(contributions);
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("Server error");
+  }
+});
+app.post("/contributions", async (req, res) => {
+  try {
+    const contribution = new Contribution(req.body);
+    await contribution.save();
+    res.status(201).send(contribution);
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("Server error");
+  }
+});
 const PORT = process.env.PORT || 8000;
 app.listen(PORT, () => {
   console.log(`Server started on port ${PORT}`);

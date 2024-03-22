@@ -1,52 +1,82 @@
-// Hàm kiểm tra trạng thái đăng nhập
 function checkLoginStatus() {
-  if (localStorage.getItem("isLoggedIn")) {
-    document.getElementById("loginListItem").innerHTML =
-      '<a href="../logout/logout.html">Logout</a>';
-  } else {
-    document.getElementById("loginListItem").innerHTML =
-      '<a href="../login/login.html">Login</a>';
+  const status = localStorage.getItem("isLoggedIn") ? "Logout" : "Login";
+  const link = localStorage.getItem("isLoggedIn")
+    ? "../logout/logout.html"
+    : "../login/login.html";
+  document.getElementById(
+    "loginListItem"
+  ).innerHTML = `<a href="${link}">${status}</a>`;
+}
+
+window.onload = async function () {
+  checkLoginStatus();
+  await fetchContributions();
+};
+
+async function fetchContributions() {
+  try {
+    const response = await fetch("/contributions");
+    const contributions = await response.json();
+
+    displayContributions(contributions);
+  } catch (error) {
+    console.error("Erro:", error);
   }
 }
 
-// Gọi hàm kiểm tra trạng thái đăng nhập khi trang web tải xong
-window.onload = checkLoginStatus;
+function createContributionRow(contribution) {
+  return `
+    <tr>
+      <td>${contribution.title}</td>
+      <td>${contribution.description}</td>
+      <td>${contribution.contributor}</td>
+      <td>${contribution.date}</td>
+      <td>${contribution.status}</td>
+      <td>
+        <button onclick="approveContribution('${contribution._id}')">Approve</button>
+        <button onclick="rejectContribution('${contribution._id}')">Reject</button>
+      </td>
+    </tr>
+  `;
+}
 
-// window.onload = function () {
-//   fetchContributions();
-// };
+function displayContributions(contributions) {
+  const contributionsTable = document.getElementById("contributions-table");
+  contributionsTable.innerHTML = contributions
+    .map(createContributionRow)
+    .join("");
+}
 
-// function fetchContributions() {
-//   // Giả sử chúng ta có API end-point để lấy ra danh sách các contributions
-//   fetch("/api/contributions")
-//     .then((response) => response.json())
-//     .then((contributions) => displayContributions(contributions))
-//     .catch((error) => console.error("Error:", error));
-// }
+async function approveContribution(id) {
+  try {
+    const response = await fetch(`/contributions/${id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ status: "approved" }),
+    });
+    const result = await response.json();
+    console.log(`Approved contribution with id: ${id}`);
+    fetchContributions(); // Refresh contributions after approving
+  } catch (error) {
+    console.error(`Error approving contribution with id ${id}:`, error);
+  }
+}
 
-// function displayContributions(contributions) {
-//   const contributionsTable = document.getElementById("contributions-table");
-//   contributions.forEach((contribution) => {
-//     contributionsTable.innerHTML += `
-//             <tr>
-//                 <td>${contribution.title}</td>
-//                 <td>${contribution.description}</td>
-//                 <td>${contribution.contributor}</td>
-//                 <td>${contribution.date}</td>
-//                 <td>${contribution.status}</td>
-//                 <td>
-//                     <button onclick="approveContribution(${contribution.id})">Approve</button>
-//                     <button onclick="rejectContribution(${contribution.id})">Reject</button>
-//                 </td>
-//             </tr>
-//         `;
-//   });
-// }
-
-// function approveContribution(id) {
-//   // Logic để chấp nhận một contribution
-// }
-
-// function rejectContribution(id) {
-//   // Logic để từ chối một contribution
-// }
+async function rejectContribution(id) {
+  try {
+    const response = await fetch(`/contributions/${id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ status: "rejected" }),
+    });
+    const result = await response.json();
+    console.log(`Rejected contribution with id: ${id}`);
+    fetchContributions(); // Refresh contributions after rejecting
+  } catch (error) {
+    console.error(`Error rejecting contribution with id ${id}:`, error);
+  }
+}
