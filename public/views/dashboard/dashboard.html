@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dashboard Page</title>
+    <title>Dashboard</title>
+    <link rel="stylesheet" type="text/css" href="../dashboard/dashboard.css" />
     <link rel="stylesheet" href="../home/home.css" />
+    <link rel="stylesheet" href="../dashboard/dashboard.css" />
   </head>
   <body>
     <header>
@@ -26,10 +26,36 @@
       </nav>
     </header>
 
-    <div class="container">
-      <div id="contributionList">
-        <!-- Đây là nơi mà các contributions sẽ được hiển thị -->
-      </div>
+    <div class="dashboard-container">
+      <h1>Events</h1>
+
+      <table id="submission-events-table">
+        <thead>
+          <tr>
+            <th>Event Title</th>
+            <th>Description</th>
+            <th>Teacher</th>
+            <th>Submission Date</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Nộp bài 1</td>
+            <td>Đây là mô tả sự kiện nộp bài 1</td>
+            <td>Giáo viên A</td>
+            <td>2024/03/26</td>
+            <td>Chưa kiểm duyệt</td>
+          </tr>
+          <tr>
+            <td>Nộp bài 2</td>
+            <td>Đây là mô tả sự kiện nộp bài 2</td>
+            <td>Giáo viên B</td>
+            <td>2024/03/27</td>
+            <td>Đã kiểm duyệt</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
     <script src="./dashboard.js"></script>
   </body>

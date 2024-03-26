@@ -1,46 +1,50 @@
 let userContributions = [];
 
 function checkLoginStatus() {
+  const loginListItem = document.getElementById("loginListItem");
+
   if (localStorage.getItem("isLoggedIn")) {
-    document.getElementById("loginListItem").innerHTML =
-      '<a href="./logout.html">Logout</a>';
+    loginListItem.innerHTML = '<a href="../logout/logout.html">Logout</a>';
   } else {
-    document.getElementById("loginListItem").innerHTML =
-      '<a href="./login.html">Login</a>';
+    loginListItem.innerHTML = '<a href="../login/login.html">Login</a>';
   }
 }
 
-window.onload = checkLoginStatus;
+function attachFormSubmitListener() {
+  const contributeForm = document.getElementById("contribute-form");
 
-document
-  .getElementById("contribute-form")
-  .addEventListener("submit", async function (event) {
+  contributeForm.addEventListener("submit", async function (event) {
     event.preventDefault();
 
-    var title = document.getElementById("title").value;
-    var description = document.getElementById("description").value;
+    let title = document.getElementById("title").value;
+    let description = document.getElementById("description").value;
 
-    // Add user's contributions into `userContributions`
-    userContributions.push({ title: title, description: description });
+    let newContribution = { title: title, description: description };
 
-    var response = await fetch("/contributions", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(userContributions), // submit `userContributions`
-    });
+    try {
+      const response = await fetch("/contributions", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(newContribution), // Changed from 'userContributions' to 'newContribution'
+      });
 
-    if (response.ok) {
-      var data = await response.json();
-      console.log(data);
-      alert("Contribution submitted successfully");
-
-      //Reset form and userContributions array after submission
-      document.getElementById("contribute-form").reset();
-      userContributions = [];
-    } else {
-      alert("Failed to submit contribution");
+      if (response.ok) {
+        userContributions.push(newContribution);
+        const data = await response.json();
+        console.log(data);
+        alert("Contribution submitted successfully");
+        contributeForm.reset();
+      } else {
+        throw new Error("Failed to submit contribution");
+      }
+    } catch (error) {
       console.error("Error:", error);
+      alert("Failed to submit contribution");
     }
   });
+}
+
+window.onload = function () {
+  checkLoginStatus();
+  attachFormSubmitListener();
+};

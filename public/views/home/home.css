@@ -40,3 +40,24 @@ nav ul li a {
 .container h2 {
     color: #007bff;
 }
+main {
+    margin: 20px;
+}
+
+.course {
+    background-color: #f9f9f9;
+    margin: 5px 0;
+    padding: 20px;
+    border: 1px solid #d3d3d3;
+    border-radius: 5px;
+}
+
+footer {
+    background-color:#333;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}

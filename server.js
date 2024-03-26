@@ -63,7 +63,11 @@ app.get("/contributions", async (req, res) => {
 });
 app.post("/contributions", async (req, res) => {
   try {
-    const contribution = new Contribution(req.body);
+    const contribution = new Contribution({
+      title: req.body.title || "",
+      description: req.body.description || "",
+    });
+
     await contribution.save();
     res.status(201).send(contribution);
   } catch (err) {

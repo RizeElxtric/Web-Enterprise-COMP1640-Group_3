@@ -13,22 +13,43 @@ body {
     box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.1);
 }
 
-#contributions-table {
+#contribute-form {
     width: 100%;
     border-collapse: collapse;
 }
 
-#contributions-table thead {
-    background-color: #5C6BC0;
+#contribute-form thead {
+    background-color: #007bff;
     color: white;
 }
 
-#contributions-table thead th {
+#contribute-form thead th {
     padding: 10px;
 }
 
-#contributions-table tbody td {
-    padding: 10px;
-    border: 1px solid #DDD;
-    vertical-align: top;
+#contribute-form tbody {
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    color: #333;
+}
+
+#contribute-form tbody tr {
+    border-bottom: 1px solid #ccc;
+}
+
+#contribute-form tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+#contribute-form tbody tr:hover {
+    background-color: #ddd;
+}
+
+#contribute-form tbody th, td {
+    text-align: left;
+    padding: 8px;
+}
+
+#contribute-form tbody td {
+    text-align: center;
 }

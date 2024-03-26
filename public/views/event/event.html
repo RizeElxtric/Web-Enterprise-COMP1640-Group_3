@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sinh Viên Nộp Bài</title>
+    <link rel="stylesheet" type="text/css" href="event.css" />
+    <script src="event.js"></script>
+  </head>
+  <body>
+    <form id="studentForm" action="submitForm()" onsubmit="return false;">
+      <h1>Nộp Bài</h1>
+      <label for="studentId">Mã Sinh Viên:</label><br />
+      <input type="text" id="studentId" name="studentId" /><br />
+      <label for="assignmentFile">Tập Tin Bài Tập:</label><br />
+      <input type="file" id="assignmentFile" name="assignmentFile" /><br />
+      <input type="submit" value="Nộp Bài" />
+    </form>
+  </body>
+</html>
