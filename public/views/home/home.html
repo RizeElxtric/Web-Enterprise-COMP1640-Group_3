@@ -22,37 +22,52 @@
             >
           </li>
           <li><a href="../contact/contact.html">Contact</a></li>
-          <li id="loginListItem"><a href="../login/login.html">Login</a></li>
+          <li id="loginListItem"><a href="../login">Login</a></li>
         </ul>
       </nav>
     </header>
 
     <main>
       <section>
-        <h2>Khoá học</h2>
+        <h2>Event</h2>
+        <div class="input-container">
+          <label for="search-course">Tìm kiếm event:</label>
+          <input
+            type="search"
+            id="search-course"
+            name="course"
+            placeholder="Nhập tên event..."
+          />
+        </div>
+        <!-- Tiếng Anh cơ bản -->
         <div class="course">
           <h3>Tiếng Anh cơ bản</h3>
           <p>Khóa học giúp bạn nắm bắt cơ bản về tiếng Anh.</p>
-          <h2>Phần bình luận</h2>
-          <div id="comments-section">
-            <form action="/post_comment" method="post">
-              <label for="comment">Bình luận:</label><br />
-              <textarea id="comment" name="comment"></textarea><br />
-              <input type="submit" value="Gửi Bình Luận" />
-            </form>
+          <div class="commentSection">
+            <textarea
+              id="commentInput1"
+              class="commentInput"
+              placeholder="Thêm bình luận công khai..."
+            ></textarea>
+            <input type="file" id="fileInput1" class="fileInput" multiple />
+            <button onclick="postComment(1)">Gửi Bình Luận</button>
+            <div id="commentList1" class="commentList"></div>
           </div>
         </div>
+
+        <!-- Lập trình Python -->
         <div class="course">
           <h3>Lập trình Python</h3>
           <p>Học lập trình Python từ cơ bản đến nâng cao.</p>
-          <h2>Phần bình luận</h2>
-          <div id="python-comments-section">
-            <form action="/post_comment" method="post">
-              <label for="python-comment">Bình luận:</label><br />
-              <textarea id="python-comment" name="python-comment"></textarea
-              ><br />
-              <input type="submit" value="Gửi Bình Luận" />
-            </form>
+          <div class="commentSection">
+            <textarea
+              id="commentInput2"
+              class="commentInput"
+              placeholder="Thêm bình luận công khai..."
+            ></textarea>
+            <input type="file" id="fileInput2" class="fileInput" multiple />
+            <button onclick="postComment(2)">Gửi Bình Luận</button>
+            <div id="commentList2" class="commentList"></div>
           </div>
         </div>
       </section>

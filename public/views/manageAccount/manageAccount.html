@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title>Manage Category</title>
-    <link rel="stylesheet" type="text/css" href="manageContributions.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Manage Account</title>
     <link rel="stylesheet" href="../home/home.css" />
-    <link rel="stylesheet" href="../manageCategory/manageCatory.css" />
+    <link rel="stylesheet" href="../manageAccount/manageAccount.css" />
   </head>
   <body>
     <header>
@@ -16,15 +17,17 @@
             <a href="../contributions/contributions.html">Contributions</a>
           </li>
           <li class="dropdown">
-            <a href="../manageCategory/manageCatory.html" class="dropbtn"
-              >Manage Catory</a
+            <a
+              href="../manageContributions/manageContributions.html"
+              class="dropbtn"
+              >Manage User</a
             >
             <div class="dropdown-content">
-              <a href="../manageUser/manageUser.html ">Manage User</a>
-              <a href="#">Manage </a>
-              <a href="../manageContributions/manageContributions.html"
+              <a href="../manageContributions/manageContributions.html "
                 >Manage Contributions</a
               >
+              <a href="#">Manage </a>
+              <a href="../manageCategory/manageCatory.html">Manage Catory</a>
             </div>
           </li>
           <li><a href="../contact/contact.html">Contact</a></li>
@@ -32,30 +35,66 @@
         </ul>
       </nav>
     </header>
-    <div id="manageAccounts">
-      <h2>Manage Accounts</h2>
-      <table>
-        <tr>
-          <th>Account Number</th>
-          <th>User Name</th>
-          <th>Email</th>
-          <th>Action</th>
-        </tr>
-        <tr>
-          <td>1</td>
-          <td>John Doe</td>
-          <td>john@example.com</td>
-          <td><a href="#">Edit</a> | <a href="#">Delete</a></td>
-        </tr>
-        <tr>
-          <td>2</td>
-          <td>Jane Doe</td>
-          <td>jane@example.com</td>
-          <td><a href="#">Edit</a> | <a href="#">Delete</a></td>
-        </tr>
-      </table>
-    </div>
+    <div id="main">
+      <div class="input-box">
+        <label for="accountType">Loại tài khoản:</label>
+        <select id="accountType">
+          <option value="admin">admin</option>
+          <option value="guest">guest</option>
+          <option value="head">trưởng ban</option>
+          <option value="marketing">marketing</option>
+        </select>
+      </div>
+      <div class="input-box">
+        <label for="gender">Giới tính:</label
+        ><select id="gender">
+          <option value="male">Nam</option>
+          <option value="female">Nữ</option>
+          <option value="other">Khác</option>
+        </select>
+      </div>
+      <div class="input-box">
+        <label for="accountName">Tên tài khoản:</label>
+        <input type="text" id="accountName" name="accountName" />
+      </div>
 
-    <script src="./manageAccount.js"></script>
+      <div class="input-box">
+        <label for="password">Mật khẩu:</label>
+        <input type="password" id="password" name="password" />
+      </div>
+
+      <div class="input-box">
+        <label for="re-password">Nhập lại mật khẩu:</label>
+        <input type="password" id="re-password" name="re-password" />
+      </div>
+
+      <div class="input-box">
+        <label>Quyền hạn:</label>
+        <div class="checkbox-input">
+          <input type="checkbox" id="quanlyuser" name="quanlyuser" /><label
+            for="quanlyuser"
+            >Quản lý user</label
+          >
+        </div>
+        <div class="checkbox-input">
+          <input
+            type="checkbox"
+            id="quanlybaiviet"
+            name="quanlybaiviet"
+          /><label for="quanlybaiviet">Quản lý bài viết</label>
+        </div>
+        <div class="checkbox-input">
+          <input
+            type="checkbox"
+            id="quanlytaikhoan"
+            name="quanlytaikhoan"
+          /><label for="quanlytaikhoan">Quản lý tài khoản</label>
+        </div>
+        <div>
+          <button>SAVE</button>
+        </div>
+      </div>
+    </div>
+    <script src="./manageUser.js"></script>
   </body>
 </html>
