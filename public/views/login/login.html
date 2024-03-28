@@ -7,18 +7,20 @@
     <link rel="stylesheet" href="login.css" />
   </head>
   <body>
-    <div class="container">
-      <h2>Login with Email FPT</h2>
-      <button id="loginButton">Login with FPT Email</button>
-      <div id="loginForm" style="display: none">
-        <p>Enter your FPT email:</p>
-        <input
-          type="email"
-          id="email"
-          placeholder="example@fpt.edu.vn"
-          required
-        />
-        <button id="submitEmail">Submit</button>
+    <h2>Đăng nhập</h2>
+    <form id="loginForm">
+      <label for="username">Tên người dùng:</label><br />
+      <input type="text" id="username" name="username" required autocomplete="on" /><br />
+      <label for="password">Mật khẩu:</label><br />
+      <input
+        type="password"
+        id="password"
+        name="password"
+        required
+        autocomplete="current-password"
+      /><br /><br />
+      <button type="submit">Đăng nhập</button>
+    </form>
         <p id="message"></p>
       </div>
     </div>
