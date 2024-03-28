@@ -33,10 +33,27 @@
         <div class="course">
           <h3>Tiếng Anh cơ bản</h3>
           <p>Khóa học giúp bạn nắm bắt cơ bản về tiếng Anh.</p>
+          <h2>Phần bình luận</h2>
+          <div id="comments-section">
+            <form action="/post_comment" method="post">
+              <label for="comment">Bình luận:</label><br />
+              <textarea id="comment" name="comment"></textarea><br />
+              <input type="submit" value="Gửi Bình Luận" />
+            </form>
+          </div>
         </div>
         <div class="course">
           <h3>Lập trình Python</h3>
           <p>Học lập trình Python từ cơ bản đến nâng cao.</p>
+          <h2>Phần bình luận</h2>
+          <div id="python-comments-section">
+            <form action="/post_comment" method="post">
+              <label for="python-comment">Bình luận:</label><br />
+              <textarea id="python-comment" name="python-comment"></textarea
+              ><br />
+              <input type="submit" value="Gửi Bình Luận" />
+            </form>
+          </div>
         </div>
       </section>
     </main>

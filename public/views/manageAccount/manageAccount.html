@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Manage Category</title>
+    <link rel="stylesheet" type="text/css" href="manageContributions.css" />
+    <link rel="stylesheet" href="../home/home.css" />
+    <link rel="stylesheet" href="../manageCategory/manageCatory.css" />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="../dashboard/dashboard.html">Dashboard</a></li>
+          <li>
+            <a href="../contributions/contributions.html">Contributions</a>
+          </li>
+          <li class="dropdown">
+            <a href="../manageCategory/manageCatory.html" class="dropbtn"
+              >Manage Catory</a
+            >
+            <div class="dropdown-content">
+              <a href="../manageUser/manageUser.html ">Manage User</a>
+              <a href="#">Manage </a>
+              <a href="../manageContributions/manageContributions.html"
+                >Manage Contributions</a
+              >
+            </div>
+          </li>
+          <li><a href="../contact/contact.html">Contact</a></li>
+          <li id="loginListItem"><a href="../login/login.html">Login</a></li>
+        </ul>
+      </nav>
+    </header>
+    <div id="manageAccounts">
+      <h2>Manage Accounts</h2>
+      <table>
+        <tr>
+          <th>Account Number</th>
+          <th>User Name</th>
+          <th>Email</th>
+          <th>Action</th>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td>John Doe</td>
+          <td>john@example.com</td>
+          <td><a href="#">Edit</a> | <a href="#">Delete</a></td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Jane Doe</td>
+          <td>jane@example.com</td>
+          <td><a href="#">Edit</a> | <a href="#">Delete</a></td>
+        </tr>
+      </table>
+    </div>
+
+    <script src="./manageAccount.js"></script>
+  </body>
+</html>

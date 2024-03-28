@@ -4,60 +4,10 @@ body {
     padding: 0;
     background-color: #F2F2F2;
 }
-
-.manage-contributions-container {
-    width: 80%;
-    margin: 0 auto;
-    background-color: white;
-    padding: 20px;
-    box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.1);
-}
-
-#contribute-form {
-    width: 100%;
-    border-collapse: collapse;
-}
-
-#contribute-form thead {
-    background-color: #007bff;
-    color: white;
-}
-
-#contribute-form thead th {
-    padding: 10px;
-}
-
-#contribute-form tbody {
-    font-family: Arial, sans-serif;
-    font-size: 14px;
-    color: #333;
-}
-
-#contribute-form tbody tr {
-    border-bottom: 1px solid #ccc;
-}
-
-#contribute-form tbody tr:nth-child(even) {
-    background-color: #f2f2f2;
-}
-
-#contribute-form tbody tr:hover {
-    background-color: #ddd;
-}
-
-#contribute-form tbody th, td {
-    text-align: left;
-    padding: 8px;
-}
-
-#contribute-form tbody td {
-    text-align: center;
-}
-
 /* Dropdown Button */
 .dropbtn {
     color: white;
-    padding: 16px;
+    padding: 8px;
     font-size: 16px;
     border: none;
     cursor: pointer;
@@ -74,7 +24,7 @@ body {
     display: none;
     position: absolute;
     background-color: #f9f9f9;
-    min-width: 160px;
+    min-width: 200px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
   }
@@ -97,3 +47,38 @@ body {
     display: block;
   }
   
+  #main {
+    transition: margin-left 0.5s;
+    padding: 16px;
+    margin-left: 20%;
+    margin-right: 20%;
+}
+#accountType{
+    width: 100%;
+}
+
+#toggleButton {
+    font-size: 30px;
+    cursor: pointer;
+}
+
+select,
+input[type="text"],
+input[type="password"] {
+    padding: 8px;
+    margin: 10px 0;
+    width: calc(100% - 16px); /* Adjusted width to account for padding */
+}
+
+div.input-box {
+    margin: 10px 0;
+}
+
+label {
+    font-weight: bold;
+}
+
+.checkbox-input {
+    display: block;
+    margin: 10px 0;
+}
