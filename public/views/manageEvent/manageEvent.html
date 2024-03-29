@@ -37,32 +37,27 @@
     </header>
 
     <main>
-      <h1>Manage Event</h1>
-
-      <form id="eventForm">
-        <label for="eventName">Tên sự kiện:</label>
-        <input type="text" id="eventName" name="eventName" /><br />
-        <label for="eventDescription">Mô tả sự kiện:</label>
-        <input
-          type="text"
-          id="eventDescription"
-          name="eventDescription"
-        /><br />
-        <label for="firstClosureDate">Ngày đóng cửa đầu tiên:</label>
-        <input
-          type="text"
-          id="firstClosureDate"
-          name="firstClosureDate"
-        /><br />
-        <label for="finalClosureDate">Ngày đóng cửa cuối cùng:</label>
-        <input
-          type="text"
-          id="finalClosureDate"
-          name="finalClosureDate"
-        /><br />
-        <input type="submit" value="Tạo sự kiện" />
-      </form>
+      <div class="container">
+        <button id="add-event-button">Add Event</button>
+        <div id="event-list"></div>
+      </div>
     </main>
+
+    <div id="add-event-modal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Add New Event</h2>
+        <form id="add-event-form">
+          <label for="event-name">Name:</label>
+          <input type="text" id="event-name" required />
+          <label for="event-description">Description:</label>
+          <textarea id="event-description" required></textarea>
+          <label for="event-date">Date:</label>
+          <input type="date" id="event-date" required />
+          <button type="submit">Add</button>
+        </form>
+      </div>
+    </div>
     <footer>Greenwich | © 2024</footer>
     <script src="./manageEvent.js"></script>
   </body>

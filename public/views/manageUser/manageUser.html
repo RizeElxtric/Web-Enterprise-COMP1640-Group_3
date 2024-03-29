@@ -4,7 +4,7 @@
     <title>Manage User</title>
     <link rel="stylesheet" type="text/css" href="manageContributions.css" />
     <link rel="stylesheet" href="../home/home.css" />
-    <link rel="stylesheet" href="../manageAccount/manageAccount.css" />
+    <link rel="stylesheet" href="../manageUser/manageUser.css" />
   </head>
   <body>
     <header>
@@ -37,46 +37,31 @@
     <div class="manage-accounts-container">
       <h1>Manage User</h1>
 
-      <table id="account-form">
-        <thead>
-          <tr>
-            <th>Account Number</th>
-            <th>User Name</th>
-            <th>Email</th>
-            <th>Date</th>
-            <th>Status</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Account 1</td>
-            <td>John Doe</td>
-            <td>john@example.com</td>
-            <td>2024/03/26</td>
-            <td>Active</td>
-            <td><button>Edit</button><button>Delete</button></td>
-          </tr>
-          <tr>
-            <td>Account 2</td>
-            <td>Jane Doe</td>
-            <td>jane@example.com</td>
-            <td>2024/03/27</td>
-            <td>Inactive</td>
-            <td><button>Edit</button><button>Delete</button></td>
-          </tr>
-          <tr>
-            <td>Account 3</td>
-            <td>Contributor 3</td>
-            <td>contributor3@example.com</td>
-            <td>2024/03/28</td>
-            <td>Active</td>
-            <td><button>Edit</button><button>Delete</button></td>
-          </tr>
-          <!-- Add other account rows as necessary -->
-        </tbody>
-      </table>
-    </div>
+      <main>
+        <div class="container">
+          <button id="add-user-button">Add User</button>
+          <div id="user-list"></div>
+        </div>
+      </main>
+    
+      <div id="add-user-modal" class="modal">
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <h2>Add New User</h2>
+          <form id="add-user-form">
+            <label for="user-name">Name:</label>
+            <input type="text" id="user-name" required>
+            <label for="user-email">Email:</label>
+            <input type="email" id="user-email" required>
+            <label for="user-role">Role:</label>
+            <select id="user-role" required>
+              <option value="admin">Admin</option>
+              <option value="user">User</option>
+            </select>
+            <button type="submit">Add</button>
+          </form>
+        </div>
+      </div>
     <script src="./manageUser.js"></script>
   </body>
 </html>

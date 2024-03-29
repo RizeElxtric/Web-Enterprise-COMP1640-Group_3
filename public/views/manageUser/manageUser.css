@@ -1,99 +1,107 @@
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #F2F2F2;
-}
 
-.manage-contributions-container {
-    width: 80%;
-    margin: 0 auto;
-    background-color: white;
-    padding: 20px;
-    box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.1);
-}
-
-#contribute-form {
-    width: 100%;
-    border-collapse: collapse;
-}
-
-#contribute-form thead {
-    background-color: #007bff;
-    color: white;
-}
-
-#contribute-form thead th {
+.user {
+    margin-bottom: 20px;
     padding: 10px;
-}
-
-#contribute-form tbody {
-    font-family: Arial, sans-serif;
-    font-size: 14px;
-    color: #333;
-}
-
-#contribute-form tbody tr {
-    border-bottom: 1px solid #ccc;
-}
-
-#contribute-form tbody tr:nth-child(even) {
-    background-color: #f2f2f2;
-}
-
-#contribute-form tbody tr:hover {
-    background-color: #ddd;
-}
-
-#contribute-form tbody th, td {
-    text-align: left;
-    padding: 8px;
-}
-
-#contribute-form tbody td {
-    text-align: center;
-}
-
-/* Dropdown Button */
-.dropbtn {
-    color: white;
-    padding: 16px;
-    font-size: 16px;
-    border: none;
+    border: 1px solid #ccc;
+  }
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  
+  .modal-content {
+    background-color: #fefefe;
+    margin: 10% auto;
+    padding: 20px;
+    border-radius: 4px;
+    width: 50%;
+    max-width: 600px;
+  }
+  
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
     cursor: pointer;
   }
   
-  /* Container for the dropdown */
-  .dropdown {
-    position: relative;
-    display: inline-block;
+  form label {
+    display: block;
+    margin-bottom: 5px;
   }
   
-  /* Dropdown Content (Hidden by Default) */
-  .dropdown-content {
-    display: none;
-    position: absolute;
+  form input[type="text"],
+  form input[type="date"],
+  form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  form button[type="submit"],
+  form button[type="button"] {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  form button[type="submit"]:hover,
+  form button[type="button"]:hover {
+    background-color: #45a049;
+  }
+  
+/* CSS code for user item in user list */
+.user {
+    margin-bottom: 20px;
+    padding: 15px;
     background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
   
-  /* Links inside the dropdown */
-  .dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
+  .user h2 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 18px;
   }
   
-  /* Change color of dropdown links on hover */
-  .dropdown-content a:hover {
-    background-color: #f1f1f1;
+  .user p {
+    margin: 0;
+    color: #666;
   }
   
-  /* Show the dropdown menu when hovering over dropdown */
-  .dropdown:hover .dropdown-content {
-    display: block;
+  .user p:first-of-type {
+    font-weight: bold;
+  }
+  
+  .user p:not(:first-of-type) {
+    margin-top: 5px;
+  }
+  
+  
+  @media (max-width: 768px) {
+    .user {
+      width: 100%;
+    }
   }
   
