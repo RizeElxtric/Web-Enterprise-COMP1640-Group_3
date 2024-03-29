@@ -56,7 +56,6 @@
 //     });
 // };
 //--------------------------------------------------------------------------
-
 document.addEventListener("DOMContentLoaded", function () {
   const addEventButton = document.getElementById("add-event-button");
   const modal = document.getElementById("add-event-modal");
@@ -85,12 +84,30 @@ document.addEventListener("DOMContentLoaded", function () {
   form.addEventListener("submit", function (event) {
     event.preventDefault();
     formSubmitted = true; // Đánh dấu form đã được submit
+
     const name = document.getElementById("event-name").value;
     const description = document.getElementById("event-description").value;
     const date = document.getElementById("event-date").value;
     const eventItem = createEventItem(name, description, date);
+
+    const editButton = document.createElement("button");
+    editButton.textContent = "Sửa";
+    editButton.addEventListener("click", function () {
+      // Xử lý sự kiện sửa ở đây
+      // Ví dụ: alert("Sửa sự kiện " + name);
+    });
+
+    const deleteButton = document.createElement("button");
+    deleteButton.textContent = "Xóa";
+    deleteButton.addEventListener("click", function () {
+      eventItem.remove(); // Xóa sự kiện khỏi danh sách
+    });
+
+    eventItem.appendChild(editButton);
+    eventItem.appendChild(deleteButton);
+
     eventList.appendChild(eventItem);
-    modal.style.display = "none";
+    modal.style.display = "none"; // Ẩn modal sau khi submit form
     form.reset();
   });
 
@@ -103,5 +120,50 @@ document.addEventListener("DOMContentLoaded", function () {
         <p>Date: ${date}</p>
       `;
     return eventItem;
+  }
+
+  // Tạo một số sự kiện mẫu
+  const sampleEvents = [
+    {
+      name: "Sự kiện 1",
+      description: "Mô tả của sự kiện 1",
+      date: "2024/03/30",
+    },
+    {
+      name: "Sự kiện 2",
+      description: "Mô tả của sự kiện 2",
+      date: "2024/03/31",
+    },
+    {
+      name: "Sự kiện 3",
+      description: "Mô tả của sự kiện 3",
+      date: "2024/04/01",
+    },
+  ];
+
+  // Thêm sự kiện mẫu vào eventList
+  for (let eventInfo of sampleEvents) {
+    const eventItem = createEventItem(
+      eventInfo.name,
+      eventInfo.description,
+      eventInfo.date
+    );
+    eventList.appendChild(eventItem);
+
+    const editButton = document.createElement("button");
+    editButton.textContent = "Sửa";
+    editButton.addEventListener("click", function () {
+      // Xử lý sự kiện sửa ở đây
+      // Ví dụ: alert("Sửa sự kiện " + eventInfo.name);
+    });
+
+    const deleteButton = document.createElement("button");
+    deleteButton.textContent = "Xóa";
+    deleteButton.addEventListener("click", function () {
+      eventItem.remove(); // Xóa sự kiện khỏi danh sách
+    });
+
+    eventItem.appendChild(editButton);
+    eventItem.appendChild(deleteButton);
   }
 });

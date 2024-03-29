@@ -12,56 +12,53 @@
         <ul>
           <li><a href="/">Home</a></li>
           <li><a href="../dashboard/dashboard.html">Dashboard</a></li>
-          <li>
-            <a href="../contributions/contributions.html">Contributions</a>
-          </li>
+
           <li class="dropdown">
-            <a href="../manageAccount/manageAccount.html" class="dropbtn"
-              >Manage Account</a
+            <a
+              href="../manageContributions/manageContributions.html"
+              class="dropbtn"
+              >Manage Contributions</a
             >
             <div class="dropdown-content">
-              <a href="../manageAccount/manageAccount.html ">Manage Account</a>
-              <a href="#">Manage </a>
-              <a href="../manageContributions/manageContributions.html"
-                >Manage Contributions</a
-              >
-              <a href="../manageCategory/manageCatory.html"> Manage Category</a>
-              <a href="../manageUser/manageUser.html"></a>
+              <a href="../contributions/contributions.html">Contributions</a>
+
+              <a href="../manageEvent/manageEvent.html"> Manage Event</a>
             </div>
           </li>
           <li><a href="../contact/contact.html">Contact</a></li>
-          <li id="loginListItem"><a href="../login/login.html">Login</a></li>
+          <li id="loginListItem"><a href="../login">Login</a></li>
         </ul>
       </nav>
     </header>
-    <div class="manage-accounts-container">
-      <h1>Manage User</h1>
 
-      <main>
-        <div class="container">
-          <button id="add-user-button">Add User</button>
-          <div id="user-list"></div>
-        </div>
-      </main>
-    
-      <div id="add-user-modal" class="modal">
-        <div class="modal-content">
-          <span class="close">&times;</span>
-          <h2>Add New User</h2>
-          <form id="add-user-form">
-            <label for="user-name">Name:</label>
-            <input type="text" id="user-name" required>
-            <label for="user-email">Email:</label>
-            <input type="email" id="user-email" required>
-            <label for="user-role">Role:</label>
-            <select id="user-role" required>
-              <option value="admin">Admin</option>
-              <option value="user">User</option>
-            </select>
-            <button type="submit">Add</button>
-          </form>
-        </div>
+    <h1>Manage User</h1>
+
+    <main>
+      <div class="container">
+        <button id="add-user-button">Add User</button>
+        <div id="user-list"></div>
       </div>
+    </main>
+
+    <div id="add-user-modal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Add New User</h2>
+        <form id="add-user-form">
+          <label for="user-name">Name:</label>
+          <input type="text" id="user-name" required />
+          <label for="user-email">Email:</label>
+          <input type="email" id="user-email" required />
+          <label for="user-role">Role:</label>
+          <select id="user-role" required>
+            <option value="admin">Admin</option>
+            <option value="user">User</option>
+          </select>
+          <button type="submit">Add</button>
+        </form>
+      </div>
+    </div>
     <script src="./manageUser.js"></script>
+    <footer>Greenwich | © 2024</footer>
   </body>
 </html>

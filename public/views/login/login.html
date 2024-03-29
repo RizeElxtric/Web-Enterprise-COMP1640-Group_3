@@ -4,9 +4,36 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login with Email FPT</title>
+    <link rel="stylesheet" href="../home/home.css" />
+
     <link rel="stylesheet" href="login.css" />
   </head>
   <body>
+    <header>
+      <nav>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="../dashboard/dashboard.html">Dashboard</a></li>
+          <li>
+            <a href="../contributions/contributions.html">Contributions</a>
+          </li>
+          <li class="dropdown">
+            <a
+              href="../manageContributions/manageContributions.html"
+              class="dropbtn"
+              >Manage Contributions</a
+            >
+            <div class="dropdown-content">
+              <a href="../manageUser/manageUser.html ">Manage User</a>
+              <a href="../manageEvent/manageEvent.html"> Manage Event</a>
+            </div>
+          </li>
+          <li><a href="../contact/contact.html">Contact</a></li>
+          <li id="loginListItem"><a href="../login">Login</a></li>
+        </ul>
+      </nav>
+    </header>
+    
     <h2>Đăng nhập</h2>
     <form id="loginForm">
       <label for="username">Tên người dùng:</label><br />

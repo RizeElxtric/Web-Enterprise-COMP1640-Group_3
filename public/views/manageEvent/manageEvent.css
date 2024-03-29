@@ -98,6 +98,16 @@ form button[type="button"]:hover {
   margin-top: 5px;
 }
 
+.event-item {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.edit-button, .delete-button {
+  margin-top: 5px;
+  cursor: pointer;
+}
 
 @media (max-width: 768px) {
   .event {
