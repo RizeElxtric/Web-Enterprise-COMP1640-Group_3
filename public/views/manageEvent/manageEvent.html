@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Manage Event</title>
+    <link rel="stylesheet" href="../home/home.css" />
+    <link rel="stylesheet" href="../manageEvent/manageEvent.css" />
+    <script src="../manageEvent/manageEvent.js"></script>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="../dashboard/dashboard.html">Dashboard</a></li>
+          <li>
+            <a href="../contributions/contributions.html">Contributions</a>
+          </li>
+          <li class="dropdown">
+            <a
+              href="../manageContributions/manageContributions.html"
+              class="dropbtn"
+              >Manage Contributions</a
+            >
+            <div class="dropdown-content">
+              <a href="../manageUser/manageUser.html ">Manage User</a>
+              <a href="#">Manage </a>
+              <a href="../manageCategory/manageCatory.html">Manage Catory</a>
+              <a href="../manageAccount/manageAccount.html">Manage Account</a>
+            </div>
+          </li>
+          <li><a href="../contact/contact.html">Contact</a></li>
+          <li id="loginListItem"><a href="../login">Login</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <h1>Manage Event</h1>
+
+      <form id="eventForm">
+        <label for="eventName">Tên sự kiện:</label>
+        <input type="text" id="eventName" name="eventName" /><br />
+        <label for="eventDescription">Mô tả sự kiện:</label>
+        <input
+          type="text"
+          id="eventDescription"
+          name="eventDescription"
+        /><br />
+        <label for="firstClosureDate">Ngày đóng cửa đầu tiên:</label>
+        <input
+          type="text"
+          id="firstClosureDate"
+          name="firstClosureDate"
+        /><br />
+        <label for="finalClosureDate">Ngày đóng cửa cuối cùng:</label>
+        <input
+          type="text"
+          id="finalClosureDate"
+          name="finalClosureDate"
+        /><br />
+        <input type="submit" value="Tạo sự kiện" />
+      </form>
+    </main>
+    <footer>Greenwich | © 2024</footer>
+    <script src="./manageEvent.js"></script>
+  </body>
+</html>

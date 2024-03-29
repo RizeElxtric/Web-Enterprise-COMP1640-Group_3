@@ -1,0 +1,47 @@
+/* Style the form container */
+#eventForm {
+    width: 300px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  /* Style form labels */
+  #eventForm label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  /* Style form inputs */
+  #eventForm input[type="text"] {
+    width: calc(100% - 12px);
+    padding: 6px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+  }
+  
+  /* Style submit button */
+  #eventForm input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  
+  /* Hover effect on submit button */
+  #eventForm input[type="submit"]:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Error message style */
+  .error-message {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+  }
+  
