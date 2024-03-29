@@ -1,46 +1,61 @@
 document.addEventListener("DOMContentLoaded", function () {
-  document
-    .getElementById("loginForm")
-    .addEventListener("submit", function (event) {
-      event.preventDefault();
+  // Add event listener to login button
+  document.getElementById("submit-btn").addEventListener("click", function () {
+    document.getElementById("loginForm").style.display = "block";
+  });
+  document.addEventListener("DOMContentLoaded", function () {
+    // Fetch data after the page loaded
+    fetch("https://api.example.com/userdata", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "Bearer " + localStorage.getItem("token"),
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => console.log(data))
+      .catch((error) => console.log("Có lỗi xảy ra: " + error));
 
-      var username = document.getElementById("username").value;
-      var password = document.getElementById("password").value;
-
-      console.log("Sending:", { username: username, password: password }); // Ghi dữ liệu cần gửi vào console
-
-      fetch("https://marketingeventgroup4.azurewebsites.net/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          username: username,
-          password: password,
-        }),
-      })
-        .then((response) => {
-          if (response.ok) {
-            return response.text(); // Sử dụng .text() thay vì .json()
-          } else {
-            throw new Error("Đăng nhập không thành công");
-          }
-        })
-        .then((data) => {
-          try {
-            data = JSON.parse(data); // Cố gắng phân tích chuỗi thành JSON
-          } catch (error) {
-            console.error("Could not parse data as JSON:", data);
-          }
-          console.log("Received:", data);
-          document.getElementById("message").textContent =
-            "Đăng nhập thành công!";
-          window.location.href = "../home/home.html";
-        })
-        .catch((error) => {
-          console.error("Error:", error); // Ghi lỗi vào console
-          document.getElementById("message").textContent =
-            "Đăng nhập không thành công. Vui lòng kiểm tra lại thông tin đăng nhập.";
-        });
-    });
+    // Add event listener to login button...
+    // Rest of your code...
+  });
+  // Add event listener to submit button
+  document.getElementById("submit-btn").addEventListener("click", login);
 });
+var token = localStorage.getItem("token");
+
+// Sau đó bạn có thể sử dụng biến token ở đâu đó trong mã nguồn của bạn
+console.log(token);
+const apiUrl = "https://marketingeventgroup4.azurewebsites.net";
+
+async function login(event) {
+  event.preventDefault();
+
+  let data = {
+    username: document.getElementById("username").value,
+    password: document.getElementById("password").value,
+  };
+
+  let response = await fetch(`${apiUrl}/login`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(data),
+  });
+
+  if (response.ok) {
+    let token = await response.text();
+    localStorage.setItem("token", token);
+    let payload = token.split(".")[1];
+    let decodedPayload = atob(payload);
+    let jsonPayload = JSON.parse(decodedPayload);
+    localStorage.setItem("role", jsonPayload.role); // Lưu vai trò vào localStorage
+    localStorage.setItem("isLoggedIn", true); // Thêm dòng này
+    if (localStorage.getItem("isLoggedIn")) {
+      window.location.href = "../home/home.html"; // điều hướng người dùng đến trang home
+    }
+  } else {
+    throw new Error("Đăng nhập không thành công");
+  }
+}
